@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -391,8 +391,9 @@ namespace MaterialDesignThemes.Wpf
                         mouseNotOverManagedWaitHandle.WaitHandle,
                         durationPassedWaitHandle
                     });
-                })},
-                t => Task.Factory.StartNew(actionClickWaitHandle.WaitOne));
+                }),
+                    Task.Factory.StartNew(actionClickWaitHandle.WaitOne)
+                }, t => { });
         }
 
         private static void DoActionCallback(SnackbarMessageQueueItem messageQueueItem)
